@@ -8,8 +8,7 @@ defmodule Service1.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: Service1.Worker.start_link(arg)
-      # {Service1.Worker, arg}
+      {Plug.Cowboy, scheme: :http, plug: Service1.Service1Plug, options: [port: 8199]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
