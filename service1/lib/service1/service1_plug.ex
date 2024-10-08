@@ -45,7 +45,7 @@ defmodule Service1.Service1Plug do
     {processes, 0} = System.shell(@processes_cmd)
 
     processes
-    |> String.split("\n")
+    |> String.split("\n", trim: true)
     |> tl()
     |> Enum.map(&split_proc_info/1)
   end
