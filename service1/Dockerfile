@@ -2,14 +2,10 @@ FROM elixir:1.17.3-alpine as build
 
 # install build dependencies
 RUN apk add --update git build-base
-#nodejs npm yarn python3
 
-#
-RUN mkdir /app
 WORKDIR /app
 
 # install Hex + Rebar
-#
 RUN mix do local.hex --force, local.rebar --force
 
 # set build ENV
@@ -32,14 +28,10 @@ FROM alpine:3.20.3 AS app
 
 # install runtime dependencies
 RUN apk add --update ncurses libstdc++ libgcc
-#openssl postgresql-client
 
 EXPOSE 8199
 ENV MIX_ENV=prod
 
-# prepare app directory
-#
-RUN mkdir /app
 WORKDIR /app
 
 # copy release to app container
