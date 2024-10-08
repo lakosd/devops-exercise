@@ -2,9 +2,9 @@ defmodule Service1.Service1Plug do
   import Plug.Conn
 
   @disk_space_cmd ~s(df | awk '$6 == "/" {print $4}')
-  @processes_cmd ~s(ps -ax)
-  @uptime_cmd ~s(uptime -p | sed 's/^up //')
-  @ip_cmd ~s(ip route | awk '{print $9; exit}')
+  @processes_cmd ~s(ps)
+  @uptime_cmd ~s<uptime | sed 's/^ [^ ]* up \\([^,]*,[^,]*\\),.*/\\1/'>
+  @ip_cmd ~s(hostname -i)
 
   def init(options), do: options
 
@@ -51,7 +51,7 @@ defmodule Service1.Service1Plug do
   end
 
   defp split_proc_info(process_str) do
-    process_info = String.split(process_str, ~r{\s}, trim: true, parts: 5)
-    Enum.zip([:pid, :tty, :stat, :time, :command], process_info)
+    process_info = String.split(process_str, ~r{\s}, trim: true, parts: 4)
+    Enum.zip([:pid, :user, :time, :command], process_info)
   end
 end
