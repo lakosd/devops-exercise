@@ -23,7 +23,8 @@ defmodule Service1.MixProject do
   defp deps do
     [
       {:json, "~> 1.4"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:req, "~> 0.5.6"}
     ]
   end
 end

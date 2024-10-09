@@ -15,12 +15,16 @@ defmodule Service1.Service1Plug do
   end
 
   defp response_body() do
+    service2_resp = Req.get!("http://service2:8198/").body
     {:ok, json_str} =
       JSON.encode([
-        ip: ip(),
-        processes: processes(),
-        diskSpace: disk_space(),
-        uptime: uptime()
+        service1: [
+          ip: ip(),
+          processes: processes(),
+          diskSpace: disk_space(),
+          uptime: uptime()
+        ],
+        service2: service2_resp
       ])
 
     json_str
