@@ -1,7 +1,0 @@
-{
-  "name": "service2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "service2.js",
-  "type": "module"
-}
