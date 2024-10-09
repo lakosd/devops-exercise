@@ -1,4 +1,4 @@
-FROM elixir:1.17.3-alpine as build
+FROM elixir:1.17.3-alpine AS build
 
 # install build dependencies
 RUN apk add --update git build-base
