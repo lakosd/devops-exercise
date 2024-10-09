@@ -51,11 +51,6 @@ defmodule Service1.Service1Plug do
     processes
     |> String.split("\n", trim: true)
     |> tl()
-    |> Enum.map(&split_proc_info/1)
-  end
-
-  defp split_proc_info(process_str) do
-    process_info = String.split(process_str, ~r{\s}, trim: true, parts: 4)
-    Enum.zip([:pid, :user, :time, :command], process_info)
+    |> Enum.map(&String.trim/1)
   end
 end
