@@ -78,7 +78,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .route("/", web::get().to(get_system_info))
     })
-    .bind(("127.0.0.1", 8198))?
+    .bind(("0.0.0.0", 8198))?
     .run()
     .await
 }
