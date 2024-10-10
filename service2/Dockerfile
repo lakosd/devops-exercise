@@ -6,6 +6,8 @@ RUN apk add --update musl-dev
 RUN cargo build --release
 
 FROM alpine:3.20.3 AS app
+# required for ps -ax to work on alpine
+RUN apk add --update procps
 EXPOSE 8198
 WORKDIR /app
 #RUN apt-get update & apt-get install -y extra-runtime-dependencies & rm -rf /var/lib/apt/lists/*

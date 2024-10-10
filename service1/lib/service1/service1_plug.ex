@@ -2,7 +2,7 @@ defmodule Service1.Service1Plug do
   import Plug.Conn
 
   @disk_space_cmd ~s(df | awk '$6 == "/" {print $4}')
-  @processes_cmd ~s(ps)
+  @processes_cmd ~s(ps -ax)
   @uptime_cmd ~s<uptime | sed 's/^ [^ ]* up \\([^,]*,[^,]*\\),.*/\\1/'>
   @ip_cmd ~s(hostname -i)
 

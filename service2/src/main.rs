@@ -39,6 +39,7 @@ async fn get_system_info() -> impl Responder {
     let hostname_result = str::from_utf8(&hostname_output.stdout).unwrap().trim();
 
     let ps = Command::new("ps")
+        .arg("-ax")
         .stdout(Stdio::piped())
         .spawn()
         .unwrap();

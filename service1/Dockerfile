@@ -27,7 +27,8 @@ RUN mix release
 FROM alpine:3.20.3 AS app
 
 # install runtime dependencies
-RUN apk add --update ncurses libstdc++ libgcc
+# procps is required for ps -ax to work on alpine
+RUN apk add --update ncurses libstdc++ libgcc procps
 
 EXPOSE 8199
 ENV MIX_ENV=prod
