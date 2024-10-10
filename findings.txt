@@ -1,0 +1,9 @@
+Findings regarding the relationship of Docker containers and their host
+
+- Containers share the kernel with the host. Because of this, properties like
+  uptime and disk space are also shared.
+- Docker creates its own network for the containers, so networking is
+  separated. However, we can still gain access to the network by exposing ports
+  on containers.
+- Docker also separates the processes running within the containers.
+
