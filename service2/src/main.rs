@@ -45,23 +45,11 @@ async fn get_system_info() -> impl Responder {
         .unwrap();
     let ps_output = ps.wait_with_output().unwrap();
     let ps_result = str::from_utf8(&ps_output.stdout).unwrap().trim();
-
-    // Parse ps output
     let ps_lines: Vec<String> = ps_result
         .split('\n')
         .map(|line| line.trim().to_string())
         .skip(1)
         .collect();
-
-    // let parsed_ps_data: Vec<Option<serde_json::Value>> = ps_lines.into_iter()
-    //     .map(|line| {
-    //         if line.starts_with("PID") {
-    //             None
-    //         } else {
-    //             serde_json::from_str(&line).ok()
-    //         }
-    //     })
-    //     .collect();
 
     let system_info = json!({
         "ip": hostname_result,

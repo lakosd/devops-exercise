@@ -10,6 +10,5 @@ FROM alpine:3.20.3 AS app
 RUN apk add --update procps
 EXPOSE 8198
 WORKDIR /app
-#RUN apt-get update & apt-get install -y extra-runtime-dependencies & rm -rf /var/lib/apt/lists/*
 COPY --from=build /usr/src/service2/target/release/service2 ./bin/service2
 CMD ["bin/service2"]
