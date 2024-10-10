@@ -1,0 +1,4 @@
+CONTAINER ID   IMAGE                    COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+a3d4eb3d80f2   devops-docker-service1   "bin/service1 start"     5 minutes ago   Up 5 minutes   0.0.0.0:8199->8199/tcp, :::8199->8199/tcp   service1
+0cf73776d154   devops-docker-service2   "bin/service2"           5 minutes ago   Up 5 minutes   8198/tcp                                    service2
+

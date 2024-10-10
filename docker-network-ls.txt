@@ -1,0 +1,6 @@
+NETWORK ID     NAME                    DRIVER    SCOPE
+8ef07711c94a   bridge                  bridge    local
+e598279d7f85   devops-docker_default   bridge    local
+2e96f251c5e4   host                    host      local
+71363790def4   none                    null      local
+
