@@ -15,7 +15,7 @@ defmodule Service1.ResponderPlug do
   end
 
   defp response_body() do
-    service2_resp = Req.get!("http://service2:8198/").body
+    service2_resp = Req.get!("http://service2/").body
     {:ok, json_str} =
       JSON.encode([
         service1: [

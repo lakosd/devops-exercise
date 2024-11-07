@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devops Exercise 4</title>
+</head>
+<body>
+    <button onclick="request()">REQUEST</button>
+    <br><br>
+    <p>Response:</p>
+    <br>
+    <pre id="response"></pre>
+
+    <script>
+        async function request() {
+            try {
+                const response = await fetch('/service1');
+                const data = await response.json();
+                document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('response').textContent = 'Error fetching data';
+            }
+        }
+    </script>
+</body>
+</html>
+

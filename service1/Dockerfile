@@ -30,7 +30,7 @@ FROM alpine:3.20.3 AS app
 # procps is required for ps -ax to work on alpine
 RUN apk add --update ncurses libstdc++ libgcc procps
 
-EXPOSE 8199
+EXPOSE 80
 ENV MIX_ENV=prod
 
 WORKDIR /app
