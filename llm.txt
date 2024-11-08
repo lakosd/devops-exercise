@@ -9,3 +9,8 @@ provided actual working code. I had to modify my code quite a bit.
 An example for a mistake the LLM made was treating piped commands (e.g.
 `... | awk ...`) as arguments to the first command, while
 `std::process::Command` has its own way of dealing with pipes.
+
+---
+Exercise 4
+
+I used phind.com to help me generate index.html served by nginx.
